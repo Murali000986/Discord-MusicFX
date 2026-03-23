@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ParticleBackground } from "@/components/ParticleBackground";
 import { Navbar } from "@/components/Navbar";
 import { Visualizer } from "@/components/Visualizer";
+import { MusicPlayer } from "@/components/MusicPlayer";
 import { TiltCard } from "@/components/TiltCard";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { TerminalShowcase } from "@/components/TerminalShowcase";
@@ -142,6 +143,7 @@ export default function LandingPage() {
     <div className="relative min-h-screen">
       <ParticleBackground />
       <Navbar />
+      <MusicPlayer />
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 px-4 sm:px-6 lg:px-8 overflow-hidden min-h-screen flex flex-col justify-center">
