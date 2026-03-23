@@ -35,8 +35,8 @@ export function Navbar() {
             <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-primary/20 text-primary border border-primary/30 box-glow-primary">
               <Disc className="w-6 h-6 animate-spin-slow" />
             </div>
-            <span className="font-display font-bold text-2xl tracking-wider text-foreground">
-              NEON
+            <span className="font-display font-bold text-xl tracking-wider text-foreground">
+              NEON <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">MUSIC</span>
             </span>
           </div>
 

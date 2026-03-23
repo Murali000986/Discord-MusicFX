@@ -1,20 +1,21 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Terminal, Play, FastForward, SlidersHorizontal } from "lucide-react";
+import { Terminal, Play, FastForward, SlidersHorizontal, Volume2 } from "lucide-react";
 
 export function TerminalShowcase() {
   const [step, setStep] = useState(0);
   
   const commands = [
-    { text: "/play url:https://spotify.com/playlist/synthwave", icon: <Play className="w-4 h-4 text-accent" /> },
-    { text: "/filter apply:bassboost_extreme", icon: <SlidersHorizontal className="w-4 h-4 text-primary" /> },
-    { text: "/skip", icon: <FastForward className="w-4 h-4 text-white" /> }
+    { text: "/play Lofi Hip Hop Radio", icon: <Play className="w-4 h-4 text-accent" />, response: <>Added <span className="text-accent font-bold">Lofi Hip Hop Radio</span> to the queue. Now playing!</> },
+    { text: "/filter nightcore", icon: <SlidersHorizontal className="w-4 h-4 text-primary" />, response: <>Audio filter <span className="text-primary font-bold">Nightcore</span> applied successfully.</> },
+    { text: "/volume 80", icon: <Volume2 className="w-4 h-4 text-accent" />, response: <>Volume set to <span className="text-accent font-bold">80%</span> 🔊</> },
+    { text: "/skip", icon: <FastForward className="w-4 h-4 text-white" />, response: <>Skipped! Now playing: <span className="text-white font-bold">Resonance - HOME</span></> },
   ];
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setStep((prev) => (prev + 1) % 4); // 3 commands + 1 pause state
-    }, 3000);
+      setStep((prev) => (prev + 1) % (commands.length + 1));
+    }, 3200);
     return () => clearInterval(timer);
   }, []);
 
@@ -29,14 +30,14 @@ export function TerminalShowcase() {
         </div>
         <div className="mx-auto flex items-center gap-2 text-xs font-mono text-muted-foreground">
           <Terminal className="w-3 h-3" />
-          discord-app.exe
+          discord — #music
         </div>
       </div>
       
       {/* Terminal Body */}
-      <div className="p-6 font-mono text-sm min-h-[250px] relative">
+      <div className="p-6 font-mono text-sm min-h-[260px] relative">
         <div className="space-y-4">
-          {/* Previous commands fading out */}
+          {/* Previous context */}
           <div className="opacity-30 space-y-2">
             <div className="flex items-center gap-2">
               <span className="text-primary font-bold">@User</span>
@@ -48,8 +49,8 @@ export function TerminalShowcase() {
             </div>
           </div>
 
-          {/* Active typing command */}
-          {step < 3 && (
+          {/* Active command */}
+          {step < commands.length && (
             <motion.div 
               key={step}
               initial={{ opacity: 0, y: 10 }}
@@ -72,7 +73,6 @@ export function TerminalShowcase() {
                 </motion.span>
               </div>
               
-              {/* Bot Response Mockup */}
               <motion.div 
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -80,22 +80,21 @@ export function TerminalShowcase() {
                 className="pl-4 mt-4"
               >
                 <div className="bg-[#1a1d27] border-l-4 border-primary rounded-r p-4 shadow-lg">
-                  <div className="flex items-center gap-2 font-sans font-bold text-white mb-1">
-                    <span className="bg-primary text-[10px] uppercase px-1 rounded text-primary-foreground">BOT</span>
-                    Neon
+                  <div className="flex items-center gap-2 font-sans font-bold text-white mb-2">
+                    <span className="bg-gradient-to-r from-primary to-accent text-[10px] uppercase px-2 py-0.5 rounded text-white font-bold tracking-wider">BOT</span>
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">NEON MUSIC</span>
                   </div>
-                  {step === 0 && <p className="text-gray-300 font-sans">Added 42 tracks to queue from <span className="text-accent">Synthwave Mix</span></p>}
-                  {step === 1 && <p className="text-gray-300 font-sans">Audio filter <span className="text-primary font-bold">Bassboost Extreme</span> applied.</p>}
-                  {step === 2 && <p className="text-gray-300 font-sans">Skipped track. Now playing: <span className="text-white font-bold">Resonance - HOME</span></p>}
+                  <p className="text-gray-300 font-sans text-sm">{commands[step].response}</p>
                 </div>
               </motion.div>
             </motion.div>
           )}
 
-          {step === 3 && (
-             <div className="flex items-center gap-2 pt-2 animate-pulse text-gray-500">
-               Waiting for command...
-             </div>
+          {step === commands.length && (
+            <div className="flex items-center gap-2 pt-2 animate-pulse text-gray-500">
+              <span className="w-2 h-4 bg-gray-500 rounded-sm inline-block" />
+              Waiting for command...
+            </div>
           )}
         </div>
       </div>
