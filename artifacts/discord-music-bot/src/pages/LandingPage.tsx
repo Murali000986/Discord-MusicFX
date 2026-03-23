@@ -19,6 +19,8 @@ import {
   Disc
 } from "lucide-react";
 
+const DISCORD_INVITE = "https://discord.com/oauth2/authorize?client_id=1245562269480517716&permissions=393079767976704&scope=bot%20applications.commands";
+
 export default function LandingPage() {
   const BASE_URL = import.meta.env.BASE_URL;
 
@@ -55,14 +57,14 @@ export default function LandingPage() {
     },
     {
       title: "24/7 Uptime",
-      desc: "Always online, always ready. Premium servers ensure Harmony never misses a beat.",
+      desc: "Always online, always ready. Premium servers ensure Neon never misses a beat.",
       icon: <Zap className="w-8 h-8 text-accent" />,
       delay: 0.6
     }
   ];
 
   const steps = [
-    { num: "01", title: "Add Bot", desc: "Invite Harmony to your Discord server with one click.", icon: <Bot className="w-6 h-6" /> },
+    { num: "01", title: "Add Bot", desc: "Invite Neon to your Discord server with one click.", icon: <Bot className="w-6 h-6" /> },
     { num: "02", title: "Join Voice", desc: "Hop into any voice channel with your friends.", icon: <Mic2 className="w-6 h-6" /> },
     { num: "03", title: "Play Music", desc: "Type /play and let the music take over.", icon: <Music className="w-6 h-6" /> }
   ];
@@ -92,7 +94,7 @@ export default function LandingPage() {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8 backdrop-blur-md"
           >
             <span className="w-2 h-2 rounded-full bg-accent animate-pulse-glow" />
-            <span className="text-sm font-medium text-white/80 tracking-wide uppercase">Harmony v3.0 is live</span>
+            <span className="text-sm font-medium text-white/80 tracking-wide uppercase">Neon v3.0 is live</span>
           </motion.div>
 
           <motion.h1 
@@ -101,7 +103,7 @@ export default function LandingPage() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-6xl md:text-8xl lg:text-9xl font-display font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-white/40 text-glow-primary mb-6"
           >
-            HARMONY
+            NEON
           </motion.h1>
 
           <motion.p 
@@ -119,10 +121,10 @@ export default function LandingPage() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
-            <button className="w-full sm:w-auto px-8 py-4 rounded-xl font-bold text-lg bg-gradient-to-r from-primary to-accent text-white shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:shadow-[0_0_60px_hsl(var(--primary)/0.6)] hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2 group">
+            <a href={DISCORD_INVITE} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto px-8 py-4 rounded-xl font-bold text-lg bg-gradient-to-r from-primary to-accent text-white shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:shadow-[0_0_60px_hsl(var(--primary)/0.6)] hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2 group">
               Add to Discord
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </button>
+            </a>
             <button className="w-full sm:w-auto px-8 py-4 rounded-xl font-bold text-lg bg-white/5 text-white border border-white/10 hover:bg-white/10 hover:-translate-y-1 transition-all duration-300">
               View Commands
             </button>
@@ -200,7 +202,7 @@ export default function LandingPage() {
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-primary">Absolute Power</span>
               </h2>
               <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-                Harmony uses modern Discord slash commands for a seamless, interactive experience. Autocomplete, buttons, and detailed menus make controlling the music effortless.
+                Neon uses modern Discord slash commands for a seamless, interactive experience. Autocomplete, buttons, and detailed menus make controlling the music effortless.
               </p>
               <ul className="space-y-4 mb-8">
                 {['Intuitive slash commands', 'Interactive player buttons', 'Rich embeds with album art'].map((item, i) => (
@@ -234,7 +236,7 @@ export default function LandingPage() {
       {/* How It Works */}
       <section id="how-it-works" className="py-32 relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-5xl font-display font-bold mb-16 text-white">Three Steps to <span className="text-primary">Harmony</span></h2>
+          <h2 className="text-3xl md:text-5xl font-display font-bold mb-16 text-white">Three Steps to <span className="text-primary">Neon</span></h2>
           
           <div className="grid md:grid-cols-3 gap-8 relative">
             {/* Connecting line for desktop */}
@@ -296,11 +298,11 @@ export default function LandingPage() {
               Ready to Upgrade Your Server?
             </h2>
             <p className="text-xl text-white/70 mb-10 max-w-2xl mx-auto">
-              Join thousands of other servers enjoying the premium music experience. Free forever.
+              Join thousands of servers enjoying the premium Neon music experience. Free forever.
             </p>
-            <button className="px-10 py-5 rounded-xl font-bold text-xl bg-white text-background hover:bg-primary hover:text-white hover:shadow-[0_0_50px_hsl(var(--primary))] hover:-translate-y-1 transition-all duration-300 w-full sm:w-auto">
-              Add Harmony to Discord
-            </button>
+            <a href={DISCORD_INVITE} target="_blank" rel="noopener noreferrer" className="px-10 py-5 rounded-xl font-bold text-xl bg-white text-background hover:bg-primary hover:text-white hover:shadow-[0_0_50px_hsl(var(--primary))] hover:-translate-y-1 transition-all duration-300 w-full sm:w-auto inline-block">
+              Add Neon to Discord
+            </a>
           </motion.div>
         </div>
       </section>
@@ -311,7 +313,7 @@ export default function LandingPage() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="flex items-center gap-2">
               <Disc className="w-6 h-6 text-primary" />
-              <span className="font-display font-bold tracking-wider text-xl text-white">HARMONY</span>
+              <span className="font-display font-bold tracking-wider text-xl text-white">NEON</span>
             </div>
             
             <div className="flex gap-6">
@@ -322,7 +324,7 @@ export default function LandingPage() {
             </div>
             
             <p className="text-muted-foreground text-sm">
-              &copy; {new Date().getFullYear()} Harmony Bot. Not affiliated with Discord.
+              &copy; {new Date().getFullYear()} Neon Bot. Not affiliated with Discord.
             </p>
           </div>
         </div>

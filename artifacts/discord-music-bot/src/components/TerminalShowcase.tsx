@@ -82,7 +82,7 @@ export function TerminalShowcase() {
                 <div className="bg-[#1a1d27] border-l-4 border-primary rounded-r p-4 shadow-lg">
                   <div className="flex items-center gap-2 font-sans font-bold text-white mb-1">
                     <span className="bg-primary text-[10px] uppercase px-1 rounded text-primary-foreground">BOT</span>
-                    Harmony
+                    Neon
                   </div>
                   {step === 0 && <p className="text-gray-300 font-sans">Added 42 tracks to queue from <span className="text-accent">Synthwave Mix</span></p>}
                   {step === 1 && <p className="text-gray-300 font-sans">Audio filter <span className="text-primary font-bold">Bassboost Extreme</span> applied.</p>}

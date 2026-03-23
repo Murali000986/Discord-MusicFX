@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Disc, Menu, X } from "lucide-react";
 
+const DISCORD_INVITE = "https://discord.com/oauth2/authorize?client_id=1245562269480517716&permissions=393079767976704&scope=bot%20applications.commands";
+
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -34,7 +36,7 @@ export function Navbar() {
               <Disc className="w-6 h-6 animate-spin-slow" />
             </div>
             <span className="font-display font-bold text-2xl tracking-wider text-foreground">
-              HARMONY
+              NEON
             </span>
           </div>
 
@@ -50,7 +52,9 @@ export function Navbar() {
               </a>
             ))}
             <a 
-              href="#cta"
+              href={DISCORD_INVITE}
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-5 py-2.5 rounded-full bg-primary/10 text-primary font-semibold border border-primary/30 hover:bg-primary hover:text-white transition-all duration-300 hover:shadow-[0_0_20px_hsl(var(--primary)/0.5)]"
             >
               Add to Discord
@@ -85,7 +89,9 @@ export function Navbar() {
             </a>
           ))}
           <a 
-            href="#cta"
+            href={DISCORD_INVITE}
+            target="_blank"
+            rel="noopener noreferrer"
             className="mt-2 text-center w-full px-5 py-3 rounded-lg bg-primary/20 text-primary font-bold border border-primary/30"
             onClick={() => setMobileMenuOpen(false)}
           >
