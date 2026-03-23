@@ -48,6 +48,16 @@ Every package extends `tsconfig.base.json` which sets `composite: true`. The roo
 - `pnpm run build` — runs `typecheck` first, then recursively runs `build` in all packages that define it
 - `pnpm run typecheck` — runs `tsc --build --emitDeclarationOnly` using project references
 
+## Artifacts
+
+### `artifacts/discord-music-bot` (`@workspace/discord-music-bot`)
+
+Discord Music Bot landing website — a single-page React+Vite marketing site for "Harmony", a Discord music bot. Features animated music equalizer visualizer, floating music notes particles, scroll-triggered framer-motion animations, 3D tilt feature cards, animated stat counters, terminal command showcase, and a neon purple/cyan cyberpunk design theme.
+
+- Deployed at: `/` (root)
+- Font: Manrope (sans) + Rajdhani (display)
+- Key components: ParticleBackground, Visualizer, TiltCard, AnimatedCounter, TerminalShowcase, Navbar
+
 ## Packages
 
 ### `artifacts/api-server` (`@workspace/api-server`)
